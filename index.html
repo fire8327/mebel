@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Мебельная фабрика в Чебоксарах — Кухни и мебель на заказ</title>
+  <meta name="description" id="pageDescription" content="Кухни, шкафы-купе, гардеробные на заказ напрямую с фабрики в Чебоксарах. Собственное производство, бесплатный замер, 3D-проект и подарки при заказе.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" id="pageFavicon" href="" type="image/png">
+  <script>
+    (function() {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var r = (p.get('brand') || p.get('id') || p.get('b') || '').trim().toLowerCase();
+        var ok = r === '1' || r === '2' || r === '3' ||
+                 r.indexOf('vic') !== -1 || r.indexOf('vik') !== -1 || r.indexOf('викт') !== -1 ||
+                 r.indexOf('avan') !== -1 || r.indexOf('аван') !== -1 ||
+                 r.indexOf('vita') !== -1 || r.indexOf('вит') !== -1;
+        if (!ok) {
+          document.documentElement.className += ' no-access';
+          document.title = '404 — Страница не найдена';
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ЭКРАН 404 (ЕСЛИ ПАРАМЕТР БРЕНДА НЕ УКАЗАН) -->
+  <div id="notFoundScreen" class="not-found-screen">
+    <div class="not-found-card">
+      <div class="not-found-code">404</div>
+      <h1 class="not-found-title">Страница не найдена</h1>
+      <p class="not-found-desc">
+        Запрашиваемый ресурс недоступен или ссылка сформирована некорректно.<br>
+        Доступ к материалам ограничен и возможен только по персональной ссылке от менеджера.
+      </p>
+      <div class="not-found-meta">Код ошибки: 404_RESTRICTED_ACCESS</div>
+    </div>
+  </div>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ ЛЕНДИНГА (ДОСТУПЕН ТОЛЬКО ПО ПАРАМЕТРУ) -->
+  <div id="landingApp">
+
+  <!-- ВЕРХНЯЯ ИНФО-ПОЛОСА КОМПАНИИ -->
+  <aside class="top-bar" aria-label="Информация о компании">
+    <div class="container top-bar__inner">
+      <div class="top-bar__item">
+        <span class="status-indicator"></span>
+        <span id="topBarAddress">Чебоксары • Фабрика & Шоурум открыты</span>
+      </div>
+      <div class="top-bar__item top-bar__rating">
+        <a href="#" target="_blank" rel="noopener" class="rating-link" id="topBarRatingLink">
+          <span class="stars">★★★★★</span>
+          <strong id="topBarRatingScore">4.8</strong> на Яндекс Картах
+          <span class="review-count" id="topBarRatingCount">(отзывы)</span>
+        </a>
+      </div>
+      <div class="top-bar__item top-bar__promo-badge">
+        <span class="fire-icon">🎁</span> <span id="topBarPromoText">Акция: <strong>Подарок при заказе</strong></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ШАПКА САЙТА (HEADER) -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="header__brand">
+        <img src="" alt="Логотип фабрики" class="brand-logo" id="brandLogoImg" width="48" height="48">
+        <div class="brand-text">
+          <span class="brand-name" id="brandNameText">Мебельная фабрика</span>
+          <span class="brand-tagline" id="brandTaglineText">Кухни и мебель на заказ</span>
+        </div>
+      </a>
+
+      <nav class="header__nav" id="headerNav" aria-label="Основная навигация">
+        <a href="#catalog" class="nav-link">Каталог</a>
+        <a href="#promo" class="nav-link nav-link--highlight">Акции</a>
+        <a href="#feature-section" class="nav-link" id="navFeatureLink">Особенности</a>
+        <a href="#calculator" class="nav-link">Калькулятор</a>
+        <a href="#factory" class="nav-link">О производстве</a>
+        <a href="#portfolio" class="nav-link">Наши работы</a>
+        <a href="#reviews" class="nav-link">Отзывы</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="header__phone-wrap">
+          <a href="#" class="header__phone" id="headerPhoneLink">+7 (___) ___-__-__</a>
+          <span class="phone-hint">Бесплатный расчет 3 смет</span>
+        </div>
+        <a href="#" target="_blank" rel="noopener" class="btn-icon btn-tg" id="headerTgLink" title="Написать в Telegram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+        </a>
+        <button class="btn btn--primary" id="openMeasureModalBtn">
+          <span>Вызвать замерщика</span>
+          <span class="btn-badge">0 ₽</span>
+        </button>
+        <button class="burger-btn" id="burgerBtn" aria-label="Открыть мобильное меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ПЕРВЫЙ ЭКРАН (HERO) -->
+    <section class="hero" id="hero">
+      <div class="hero__bg-wrap">
+        <img src="" alt="Интерьер мебели" class="hero__bg-img" id="heroBgImg">
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="container hero__content">
+        <div class="hero__badge" id="heroBadge">
+          <span class="badge-dot"></span>
+          <span id="heroBadgeText">Собственное производство в Чебоксарах</span>
+        </div>
+        <h1 class="hero__title" id="heroTitle">
+          Кухни и мебель на заказ <span class="highlight">напрямую с фабрики</span>
+        </h1>
+        <p class="hero__subtitle" id="heroSubtitle">
+          Создаем функциональную мебель по индивидуальным размерам без салонных наценок. Разработаем точный 3D-проект за 24 часа и рассчитаем 3 варианта сметы под ваш бюджет.
+        </p>
+
+        <!-- Ключевые преимущества в Hero -->
+        <div class="hero__features">
+          <div class="feature-card">
+            <span class="feature-num">0 ₽</span>
+            <span class="feature-text">Бесплатный замер и 3D дизайн-проект</span>
+          </div>
+          <div class="feature-card">
+            <span class="feature-num">-30%</span>
+            <span class="feature-text">Честная цена от производителя без посредников</span>
+          </div>
+          <div class="feature-card">
+            <span class="feature-num" id="heroStatsProjects">1 000+</span>
+            <span class="feature-text">Реализованных проектов в Чувашии</span>
+          </div>
+          <div class="feature-card feature-card--gift">
+            <span class="feature-num">🎁</span>
+            <span class="feature-text" id="heroGiftBenefit">Ценный подарок к кухне</span>
+          </div>
+        </div>
+
+        <div class="hero__cta-group">
+          <a href="#calculator" class="btn btn--primary btn--large">
+            <span>Рассчитать стоимость мебели онлайн</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <button class="btn btn--outline btn--large" id="heroMeasureBtn">
+            <span>Записаться на замер с образцами</span>
+          </button>
+        </div>
+
+        <!-- Доверие / Яндекс рейтинг -->
+        <div class="hero__trust">
+          <a href="#" target="_blank" rel="noopener" class="trust-badge" id="heroTrustLink">
+            <div class="trust-avatars-cluster" id="heroTrustAvatars">
+              <!-- Инжектируются аватары текущего бренда -->
+            </div>
+            <div class="trust-info">
+              <div class="trust-rating" id="heroTrustRating">★ 4.8 из 5 на Яндекс Картах</div>
+              <div class="trust-sub" id="heroTrustSub">«Проверенные отзывы заказчиков»</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК ГЛАВНОЙ АКЦИИ ГОДА -->
+    <section class="promo-banner" id="promo">
+      <div class="container">
+        <div class="promo-card">
+          <div class="promo-card__content">
+            <div class="promo-tag" id="promoTag">ГОРЯЧАЯ АКЦИЯ ФАБРИКИ</div>
+            <h2 class="promo-title" id="promoTitle">Подарок при заказе!</h2>
+            <p class="promo-desc" id="promoDesc">
+              Специальное предложение от фабрики при заключении договора в этом месяце.
+            </p>
+            <ul class="promo-benefits" id="promoBenefitsList">
+              <!-- Инжектируются пункты выгоды -->
+            </ul>
+            <div class="promo-action">
+              <button class="btn btn--gold" id="claimPromoBtn">
+                <span>Зафиксировать подарок по акции</span>
+                <span class="btn-badge">Осталось 4 подарка</span>
+              </button>
+              <span class="promo-dates">Акция действует при заключении договора в этом месяце</span>
+            </div>
+          </div>
+          <div class="promo-card__image-wrap">
+            <img src="" alt="Подарок по акции" class="promo-img" id="promoImg">
+            <div class="promo-stamp" id="promoStamp">ПОДАРОК 0 ₽</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- КАТАЛОГ НАПРАВЛЕНИЙ (BENTO GRID - 100% ДИНАМИЧЕСКИЙ) -->
+    <section class="section catalog" id="catalog">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">ЧТО МЫ ПРОИЗВОДИМ</span>
+          <h2 class="section-title">Индивидуальные решения под ваше пространство</h2>
+          <p class="section-subtitle">
+            От функциональных кухонь до эксклюзивных интерьерных модулей. Собственный станочный парк и конструкторское бюро.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Карточка 1: Кухни -->
+          <article class="bento-card bento-card--large">
+            <div class="bento-card__img-box">
+              <img src="" alt="Кухни на заказ" class="bento-img" id="bentoKitchenImg">
+              <div class="bento-card__badge">Хит заказов</div>
+            </div>
+            <div class="bento-card__body">
+              <h3 class="bento-card__title" id="bentoKitchenTitle">Кухни по индивидуальным проектам</h3>
+              <p class="bento-card__text" id="bentoKitchenDesc"></p>
+              <div class="bento-card__meta">
+                <span class="price-from" id="bentoKitchenPrice"></span>
+                <span class="term">Срок: от 14–21 дня</span>
+              </div>
+              <button class="btn btn--sm btn--outline" onclick="openCalcFor('Кухня')">Рассчитать кухню →</button>
+            </div>
+          </article>
+
+          <!-- Карточка 2: Главный фокус бренда -->
+          <article class="bento-card bento-card--featured">
+            <div class="bento-card__img-box">
+              <img src="" alt="Направление фабрики" class="bento-img" id="bentoFeaturedImg">
+              <div class="bento-card__badge bento-card__badge--gold" id="bentoFeaturedBadge"></div>
+            </div>
+            <div class="bento-card__body">
+              <h3 class="bento-card__title" id="bentoFeaturedTitle"></h3>
+              <p class="bento-card__text" id="bentoFeaturedDesc"></p>
+              <div class="bento-card__meta">
+                <span class="price-from" id="bentoFeaturedPrice"></span>
+                <span class="term">Гарантия фабрики</span>
+              </div>
+              <button class="btn btn--sm btn--gold" id="bentoFeaturedBtn" onclick="openCalcFor('Кухня')">Узнать подробнее →</button>
+            </div>
+          </article>
+
+          <!-- Карточка 3: Шкафы и гардеробные -->
+          <article class="bento-card">
+            <div class="bento-card__img-box">
+              <img src="" alt="Шкафы купе" class="bento-img" id="bentoWardrobeImg">
+            </div>
+            <div class="bento-card__body">
+              <h3 class="bento-card__title" id="bentoWardrobeTitle"></h3>
+              <p class="bento-card__text" id="bentoWardrobeDesc"></p>
+              <div class="bento-card__meta">
+                <span class="price-from" id="bentoWardrobePrice"></span>
+              </div>
+              <button class="btn btn--sm btn--outline" onclick="openCalcFor('Шкаф-купе')">Рассчитать шкаф →</button>
+            </div>
+          </article>
+
+          <!-- Карточка 4: Дополнительное направление -->
+          <article class="bento-card">
+            <div class="bento-card__img-box">
+              <img src="" alt="Мебель на заказ" class="bento-img" id="bentoFourthImg">
+            </div>
+            <div class="bento-card__body">
+              <h3 class="bento-card__title" id="bentoFourthTitle"></h3>
+              <p class="bento-card__text" id="bentoFourthDesc"></p>
+              <div class="bento-card__meta">
+                <span class="price-from" id="bentoFourthPrice"></span>
+              </div>
+              <button class="btn btn--sm btn--outline" onclick="openCalcFor('Шкаф-купе')">Рассчитать проект →</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ДИНАМИЧЕСКИЙ БЛОК: СТУДИЯ МАТЕРИАЛОВ / КАМНЯ (СТРОГО СВОИ ОБРАЗЦЫ) -->
+    <section class="section stone-studio" id="feature-section">
+      <div class="container">
+        <div class="stone-studio__wrapper" id="featureWrapper">
+          <div class="stone-studio__info">
+            <span class="section-tag" id="featureTag">ЭКСКЛЮЗИВ ПРОИЗВОДСТВА</span>
+            <h2 class="section-title" id="featureTitle">Стандарты качества и материалы фабрики</h2>
+            <p class="stone-desc" id="featureDesc"></p>
+
+            <!-- Селектор образцов -->
+            <div class="stone-selector" id="featureSelector">
+              <div class="stone-selector__label" id="featureSelectorLabel">Выберите фактуру для предпросмотра:</div>
+              <div class="stone-chips" id="featureChipsContainer">
+                <!-- Динамически инжектируются чипсы сэмпла только этой компании -->
+              </div>
+            </div>
+
+            <div class="stone-features-list" id="featureList">
+              <div class="stone-feat">
+                <span class="feat-icon">💎</span>
+                <div>
+                  <strong id="featItem1Title">Фабричное ЧПУ-оборудование</strong>
+                  <p id="featItem1Text">Точный раскрой деталей с допуском 0.2 мм и идеальная геометрия углов.</p>
+                </div>
+              </div>
+              <div class="stone-feat">
+                <span class="feat-icon">💧</span>
+                <div>
+                  <strong id="featItem2Title">Влагостойкая PUR-кромка</strong>
+                  <p id="featItem2Text">Нулевой невидимый клеевой шов защищает фасады и столешницу от пара и воды.</p>
+                </div>
+              </div>
+              <div class="stone-feat">
+                <span class="feat-icon">✨</span>
+                <div>
+                  <strong id="featItem3Title">Австрийская фурнитура Blum</strong>
+                  <p id="featItem3Text">Плавные бесшумные доводчики, рассчитанные более чем на 100 000 циклов открывания.</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn--primary" id="featureActionBtn">
+              <span>Заказать расчет проекта</span>
+            </button>
+          </div>
+
+          <div class="stone-studio__visual" id="featureVisual">
+            <div class="stone-preview-card">
+              <img src="" alt="Образец" class="stone-preview-img" id="featurePreviewImg">
+              <div class="stone-preview-badge" id="featureBadge">Образец материала</div>
+            </div>
+            <div class="stone-sink-preview" id="featureSecondaryPreview">
+              <img src="" alt="Интегрированная деталь" class="stone-sink-img" id="featureSecondaryImg">
+              <span class="sink-caption" id="featureSecondaryCaption"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР СМЕТЫ В РЕАЛЬНОМ ВРЕМЕНИ -->
+    <section class="section calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">РАСЧЕТ СТОИМОСТИ ЗА 60 СЕКУНД</span>
+          <h2 class="section-title">Интерактивный калькулятор вашей будущей мебели</h2>
+          <p class="section-subtitle">
+            Выберите параметры проекта — калькулятор моментально рассчитает смету с фабричной скидкой и зафиксирует за вами подарок!
+          </p>
+        </div>
+
+        <div class="calc-layout">
+          <!-- Левая колонка: форма шагов -->
+          <div class="calc-form">
+            <!-- Шаг 1: Тип изделия -->
+            <div class="calc-step">
+              <label class="calc-step__title">1. Что планируете изготовить?</label>
+              <div class="calc-chips" id="calcProductType">
+                <button type="button" class="calc-chip active" data-val="Кухня" data-base="45000">🍳 Кухня</button>
+                <button type="button" class="calc-chip" data-val="Шкаф-купе" data-base="28000">🚪 Шкаф-купе</button>
+                <button type="button" class="calc-chip" data-val="Гардеробная" data-base="34000">👗 Гардеробная</button>
+                <button type="button" class="calc-chip" data-val="Столешница из камня" data-base="16000" id="chipStoneProduct">🪨 Столешница из камня</button>
+                <button type="button" class="calc-chip" data-val="Мебель для ванной" data-base="24000">🚿 Мебель в ванную</button>
+              </div>
+            </div>
+
+            <!-- Шаг 2: Длина / Размер -->
+            <div class="calc-step">
+              <div class="calc-step__head-row">
+                <label class="calc-step__title">2. Ориентировочный размер (погонные метры):</label>
+                <span class="calc-slider-val" id="calcSizeDisplay">3.0 м</span>
+              </div>
+              <input type="range" class="calc-range" id="calcSizeRange" min="1.5" max="8.0" step="0.5" value="3.0">
+              <div class="range-labels">
+                <span>1.5 м (Компакт)</span>
+                <span>3.0 м (Стандарт)</span>
+                <span>5.0 м (Просторная)</span>
+                <span>8.0 м (Большой дом)</span>
+              </div>
+            </div>
+
+            <!-- Шаг 3: Материал фасадов / отделки -->
+            <div class="calc-step">
+              <label class="calc-step__title">3. Материал фасадов и корпуса:</label>
+              <div class="calc-chips" id="calcMaterial">
+                <button type="button" class="calc-chip active" data-val="МДФ в пленке Soft-Touch" data-mult="1.0">МДФ Пленка Soft-Touch</button>
+                <button type="button" class="calc-chip" data-val="МДФ Эмаль (матовая / глянец)" data-mult="1.25">МДФ Эмаль RAL (премиум)</button>
+                <button type="button" class="calc-chip" data-val="Натуральный шпон дуба/ореха" data-mult="1.45">Натуральный шпон</button>
+                <button type="button" class="calc-chip" data-val="Массив дуба / ясеня" data-mult="1.75">Массив дуба (люкс)</button>
+              </div>
+            </div>
+
+            <!-- Шаг 4: Столешница и фурнитура -->
+            <div class="calc-step">
+              <label class="calc-step__title">4. Комплектация и специальные подарки:</label>
+              <div class="calc-options">
+                <label class="calc-check">
+                  <input type="checkbox" id="checkStoneGift" checked>
+                  <span class="check-box"></span>
+                  <span class="check-text">
+                    <strong id="calcGiftOptionTitle">Подарок по акции (0 ₽)</strong>
+                    <small id="calcGiftOptionDesc">Специальный подарок от фабрики</small>
+                  </span>
+                  <span class="check-badge" id="calcGiftBadge">Экономия</span>
+                </label>
+
+                <label class="calc-check">
+                  <input type="checkbox" id="checkBlumFittings" checked>
+                  <span class="check-box"></span>
+                  <span class="check-text">
+                    <strong>Австрийская фурнитура Blum / Boyard с плавными доводчиками</strong>
+                    <small>100 000 циклов открывания без провисаний и скрипов</small>
+                  </span>
+                </label>
+
+                <label class="calc-check">
+                  <input type="checkbox" id="checkLedLighting">
+                  <span class="check-box"></span>
+                  <span class="check-text">
+                    <strong>Встроенная LED-подсветка рабочей зоны с сенсорным датчиком</strong>
+                    <small>Скрытый врезной профиль в дно шкафов</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая колонка: живой чек сметы -->
+          <div class="calc-receipt">
+            <div class="receipt-card">
+              <div class="receipt-head">
+                <div class="receipt-logo">
+                  <img src="" alt="Логотип" id="receiptLogoImg" width="36" height="36">
+                  <span>Предварительная смета</span>
+                </div>
+                <div class="receipt-date" id="receiptDate">16.11.2026</div>
+              </div>
+
+              <div class="receipt-items">
+                <div class="receipt-row">
+                  <span class="r-label" id="receiptItemName">Кухня по инд. проекту (3.0 м)</span>
+                  <span class="r-val" id="receiptItemPrice">135 000 ₽</span>
+                </div>
+                <div class="receipt-row">
+                  <span class="r-label" id="receiptMaterialName">Фасады: МДФ Soft-Touch</span>
+                  <span class="r-val" id="receiptMaterialPrice">Включено</span>
+                </div>
+                <div class="receipt-row receipt-row--gift">
+                  <span class="r-label" id="receiptGiftName">Подарок по акции</span>
+                  <span class="r-val"><s class="strike" id="receiptGiftOldPrice">45 000 ₽</s> <strong class="free-text">0 ₽ (ПОДАРОК)</strong></span>
+                </div>
+                <div class="receipt-row" id="receiptFittingsRow">
+                  <span class="r-label">Фурнитура с доводчиками (Blum/Boyard)</span>
+                  <span class="r-val">+18 000 ₽</span>
+                </div>
+                <div class="receipt-row" id="receiptLedRow" style="display: none;">
+                  <span class="r-label">Врезная LED-подсветка с сенсором</span>
+                  <span class="r-val">+9 500 ₽</span>
+                </div>
+                <div class="receipt-row">
+                  <span class="r-label">Выезд замерщика + 3D дизайн-проект</span>
+                  <span class="r-val free-text">0 ₽ (БЕСПЛАТНО)</span>
+                </div>
+              </div>
+
+              <div class="receipt-divider"></div>
+
+              <div class="receipt-total">
+                <div class="total-label">Ориентировочная стоимость:</div>
+                <div class="total-price" id="calcTotalPrice">153 000 ₽</div>
+                <div class="total-savings">Ваша фабричная выгода: <strong id="calcSavings">~58 000 ₽</strong></div>
+                <div class="total-term">Срок изготовления: <strong>от 14–21 рабочего дня</strong></div>
+              </div>
+
+              <div class="receipt-form">
+                <p class="receipt-form__title">Куда отправить точный расчет с 3D-проектом?</p>
+                <div class="receipt-inputs">
+                  <input type="tel" id="calcPhoneInput" placeholder="+7 (___) ___-__-__" class="input-phone">
+                  <div class="receipt-messengers">
+                    <button type="button" class="btn-messenger active" data-msg="whatsapp">WhatsApp</button>
+                    <button type="button" class="btn-messenger" data-msg="telegram">Telegram</button>
+                    <button type="button" class="btn-messenger" data-msg="call">Звонок</button>
+                  </div>
+                  <button type="button" class="btn btn--primary btn--full" id="sendCalcBtn">
+                    <span>Получить расчет и закрепить подарок</span>
+                  </button>
+                </div>
+                <span class="receipt-privacy">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Без спама.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОРТФОЛИО ВЫПОЛНЕННЫХ РАБОТ В ЧЕБОКСАРАХ (СТРОГО СВОИ ФОТО БРЕНДА) -->
+    <section class="section portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">НАСТОЯЩИЕ ФОТОГРАФИИ</span>
+          <h2 class="section-title">Недавние проекты фабрики в Чебоксарах</h2>
+          <p class="section-subtitle">
+            Каждая кухня и шкаф изготовлены на нашем производстве и установлены опытными штатными сборщиками.
+          </p>
+        </div>
+
+        <!-- Табы фильтрации -->
+        <div class="portfolio-tabs">
+          <button class="portfolio-tab active" data-filter="all">Все проекты</button>
+          <button class="portfolio-tab" data-filter="kitchen">Кухни</button>
+          <button class="portfolio-tab" data-filter="stone" id="tabFilterStone">Изделия из камня</button>
+          <button class="portfolio-tab" data-filter="wardrobe">Шкафы и гардеробные</button>
+        </div>
+
+        <!-- Сетка проектов (динамически инжектируется из базы данных бренда) -->
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+      </div>
+    </section>
+
+    <!-- ПОЧЕМУ ВЫБИРАЮТ НАС / О ПРОИЗВОДСТВЕ -->
+    <section class="section factory-section" id="factory">
+      <div class="container">
+        <div class="factory-layout">
+          <div class="factory-info">
+            <span class="section-tag">ЧЕСТНЫЙ ПОДХОД</span>
+            <h2 class="section-title" id="factoryTitle">Почему чебоксарцы заказывают мебель у нас</h2>
+            <p class="factory-lead" id="factoryLead">
+              Мы — прямое мебельное производство полного цикла. Сами закупаем материалы у официальных поставщиков плит, раскраиваем на станках с ЧПУ и собираем контрольные узлы перед отправкой клиенту.
+            </p>
+
+            <div class="advantages-list">
+              <div class="adv-item">
+                <div class="adv-icon">🏭</div>
+                <div class="adv-text">
+                  <h3>Цены без салонных накруток</h3>
+                  <p>В интерьерных салонах ТЦ вы переплачиваете 30–40% за аренду торговых площадей. У нас вы платите только за качественные материалы и работу мастеров.</p>
+                </div>
+              </div>
+
+              <div class="adv-item">
+                <div class="adv-icon">📐</div>
+                <div class="adv-text">
+                  <h3>Бесплатный точный замер и проект</h3>
+                  <p>Технолог приедет с лазерным дальномером, проверит кривизну стен и углы, привезет чемодан с 120+ образцами пленок, эмалей и фурнитуры.</p>
+                </div>
+              </div>
+
+              <div class="adv-item">
+                <div class="adv-icon">🛠️</div>
+                <div class="adv-text">
+                  <h3>Аккуратный и чистый монтаж</h3>
+                  <p>Наши мастера используют строительные пылесосы, работают в бахилах и бережно относятся к вашему чистовому ремонту и напольным покрытиям.</p>
+                </div>
+              </div>
+
+              <div class="adv-item">
+                <div class="adv-icon">📜</div>
+                <div class="adv-text">
+                  <h3>Официальный договор и гарантия</h3>
+                  <p id="factoryLegalText">Юридическая чистота сделки. Фиксация сроков и гарантийных обязательств в договоре.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="factory-stats">
+            <div class="stats-card">
+              <div class="stat-number" id="statYears">10+</div>
+              <div class="stat-label" id="statYearsLabel">Лет на мебельном рынке Чувашии</div>
+            </div>
+            <div class="stats-card">
+              <div class="stat-number" id="statProjects">1 000+</div>
+              <div class="stat-label">Успешно сданных проектов кухонь и шкафов</div>
+            </div>
+            <div class="stats-card">
+              <div class="stat-number">0.2 мм</div>
+              <div class="stat-label">Точность подгонки деталей на ЧПУ-оборудовании</div>
+            </div>
+            <div class="stats-card stat-card--highlight">
+              <div class="stat-number" id="statRating">4.8 ★</div>
+              <div class="stat-label" id="statRatingLabel">Рейтинг на Яндекс Картах на основе реальных отзывов</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОТЗЫВЫ РЕАЛЬНЫХ КЛИЕНТОВ С ЯНДЕКС КАРТ -->
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">ПРОВЕРЕННАЯ РЕПУТАЦИЯ</span>
+          <h2 class="section-title">Что говорят наши клиенты</h2>
+          <p class="section-subtitle">
+            Честные отзывы заказчиков из Чебоксар с Яндекс Карт. Все отзывы верифицированы модерацией Яндекса.
+          </p>
+          <div class="yandex-rating-badge">
+            <span class="badge-yandex-logo">Яндекс Карты</span>
+            <span class="badge-rating-val" id="reviewsBadgeScore">★ 4.8</span>
+            <span class="badge-rating-stars">★★★★★</span>
+            <a href="#" target="_blank" rel="noopener" class="badge-link" id="reviewsMapsLink">Смотреть все отзывы на картах ↗</a>
+          </div>
+        </div>
+
+        <!-- Сетка отзывов (динамически инжектируется из базы данных бренда) -->
+        <div class="reviews-slider" id="reviewsContainer"></div>
+      </div>
+    </section>
+
+    <!-- СХЕМА РАБОТЫ (5 ШАГОВ) -->
+    <section class="section steps-section">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">КАК МЫ РАБОТАЕМ</span>
+          <h2 class="section-title">5 простых шагов к вашей идеальной мебели</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3 class="step-title">Заявка или звонок</h3>
+            <p class="step-text">Оставьте заявку на сайте или позвоните нам. Обсудим ваши пожелания и сделаем экспресс-расчет.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3 class="step-title">Бесплатный замер</h3>
+            <p class="step-text">Инженер-дизайнер приедет с лазерным оборудованием и чемоданом образцов материалов (0 ₽).</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3 class="step-title">3D-проект и смета</h3>
+            <p class="step-text">Создадим фотореалистичный 3D-проект и подготовим 3 ценовых варианта сметы под ваш бюджет.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <h3 class="step-title">Производство</h3>
+            <p class="step-text">Изготавливаем мебель на станках с ЧПУ. Контрольная предварительная сборка в цеху.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">05</div>
+            <h3 class="step-title">Доставка и монтаж</h3>
+            <p class="step-text">Привозим в защитной упаковке, монтируем за 1 день с пылесосами и выдаем гарантийный паспорт.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ФИНАЛЬНАЯ ФОРМА ЗАХВАТА (ВЫЗОВ ЗАМЕРЩИКА) -->
+    <section class="section cta-section" id="measure-section">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-box__text">
+            <span class="cta-tag">ЗАПИСЬ НА ЗАМЕР В ЧЕБОКСАРАХ И ЧУВАШИИ</span>
+            <h2 class="cta-title">Закажите бесплатный выезд технолога с образцами материалов</h2>
+            <p class="cta-desc">
+              Замерщик привезет с собой образцы фасадов, веера пленок и эмалей, каталоги фурнитуры. На месте поможет выбрать цвет и составит точную схему розеток и коммуникаций.
+            </p>
+            <div class="cta-perks">
+              <div class="perk">✓ 0 ₽ за выезд по Чебоксарам и Новочебоксарску</div>
+              <div class="perk">✓ 3D-проект за 24 часа в подарок</div>
+              <div class="perk" id="ctaGiftPerk">✓ Фиксация ценного подарка по акции</div>
+            </div>
+          </div>
+
+          <div class="cta-box__form">
+            <form id="mainMeasureForm" class="contact-form">
+              <h3 class="form-title">Записаться на замер</h3>
+              
+              <div class="form-group">
+                <label for="userName">Ваше имя:</label>
+                <input type="text" id="userName" placeholder="Например, Александр" required>
+              </div>
+
+              <div class="form-group">
+                <label for="userPhone">Номер телефона:</label>
+                <input type="tel" id="userPhone" placeholder="+7 (___) ___-__-__" required>
+              </div>
+
+              <div class="form-group">
+                <label for="furnitureSelect">Что вас интересует?</label>
+                <select id="furnitureSelect">
+                  <option value="Кухня на заказ">Кухня (с подарком по акции)</option>
+                  <option value="Шкаф-купе или прихожая">Шкаф-купе / прихожая</option>
+                  <option value="Гардеробная комната">Гардеробная комната</option>
+                  <option value="Столешница из искусственного камня">Столешница из камня</option>
+                  <option value="Мебель для ванной">Мебель для ванной</option>
+                  <option value="Комплексная меблировка всей квартиры">Комплексная меблировка всей квартиры</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Предпочтительный способ связи:</label>
+                <div class="contact-radios">
+                  <label class="radio-label">
+                    <input type="radio" name="commWay" value="whatsapp" checked>
+                    <span>WhatsApp</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="commWay" value="telegram">
+                    <span>Telegram</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="commWay" value="phone">
+                    <span>Звонок</span>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--full btn--large">
+                <span>Вызвать замерщика бесплатно</span>
+              </button>
+
+              <span class="form-privacy">
+                Нажимая кнопку, вы подтверждаете согласие с политикой конфиденциальности. Ваши данные под защитой 152-ФЗ.
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ И КАРТА -->
+    <section class="section contacts-section" id="contacts">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">КАК НАС НАЙТИ</span>
+          <h2 class="section-title">Приглашаем в наш шоурум в Чебоксарах</h2>
+          <p class="section-subtitle">
+            Приходите посмотреть образцы готовых кухонь, оценить плавность фурнитуры и обсудить ваш проект с дизайнером за чашкой кофе.
+          </p>
+        </div>
+
+        <div class="contacts-layout">
+          <div class="contacts-card">
+            <h3 class="contacts-card__title" id="contactsBrandName">Мебельная фабрика</h3>
+            <p class="contacts-card__desc" id="contactsBrandTagline">Собственное производство мебели на заказ</p>
+
+            <div class="contacts-list">
+              <div class="contact-row">
+                <span class="c-icon">📍</span>
+                <div>
+                  <strong>Адрес:</strong>
+                  <span id="contactsAddress">г. Чебоксары</span>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <span class="c-icon">📞</span>
+                <div>
+                  <strong>Телефон:</strong>
+                  <a href="#" class="c-link" id="contactsPhone">+7 (___) ___-__-__</a>
+                  <small>Ежедневно с 09:00 до 20:00</small>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <span class="c-icon">💬</span>
+                <div>
+                  <strong>Мессенджеры:</strong>
+                  <div class="c-messengers">
+                    <a href="#" target="_blank" rel="noopener" class="btn-msg btn-msg--tg" id="contactsTgLink">Telegram</a>
+                    <a href="#" target="_blank" rel="noopener" class="btn-msg btn-msg--wa" id="contactsWaLink">WhatsApp</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <span class="c-icon">🕒</span>
+                <div>
+                  <strong>Режим работы:</strong>
+                  <span>Пн — Сб: с 09:00 до 19:00<br>Вс: по предварительной записи</span>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <span class="c-icon">🏢</span>
+                <div>
+                  <strong>Реквизиты организации:</strong>
+                  <span id="contactsLegal"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contacts-btn-group">
+              <a href="#" target="_blank" rel="noopener" class="btn btn--primary btn--full" id="contactsMapsBtn">
+                <span>Открыть на Яндекс Картах и построить маршрут ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contacts-map-wrap">
+            <iframe 
+              id="contactsMapIframe"
+              src="" 
+              width="100%" 
+              height="100%" 
+              frameborder="0" 
+              allowfullscreen="true" 
+              style="position:relative; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);"
+              title="Яндекс Карта">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ФУТЕР САЙТА -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__col footer__col--brand">
+        <div class="footer__logo">
+          <img src="" alt="Логотип" class="footer-logo" id="footerLogoImg" width="40" height="40">
+          <span class="footer__name" id="footerBrandName">Мебельная фабрика</span>
+        </div>
+        <p class="footer__desc" id="footerDesc">
+          Производство кухонь, шкафов-купе, гардеробных и мебели на заказ в Чебоксарах. Качественная мебель от прямого производителя без посредников.
+        </p>
+        <div class="footer__yandex">
+          <a href="#" target="_blank" rel="noopener" class="footer__rating-pill" id="footerRatingPill">
+            ★ <span id="footerRatingScore">4.8</span> на Яндекс Картах (<span id="footerRatingCount">отзывы</span>)
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Продукция</h4>
+        <ul class="footer__links">
+          <li><a href="#catalog" onclick="openCalcFor('Кухня')">Кухни на заказ</a></li>
+          <li><a href="#feature-section" id="footerLinkFeature">Особенности</a></li>
+          <li><a href="#catalog" onclick="openCalcFor('Шкаф-купе')">Шкафы-купе и гардеробные</a></li>
+          <li><a href="#catalog" onclick="openCalcFor('Мебель для ванной')">Мебель для ванных комнат</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__heading">Клиентам</h4>
+        <ul class="footer__links">
+          <li><a href="#promo">Акции и скидки</a></li>
+          <li><a href="#calculator">Калькулятор стоимости</a></li>
+          <li><a href="#portfolio">Фото готовых объектов</a></li>
+          <li><a href="#reviews">Отзывы заказчиков</a></li>
+          <li><a href="#factory">Гарантия и договор</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col footer__col--contacts">
+        <h4 class="footer__heading">Контакты</h4>
+        <p id="footerAddress">Чебоксары</p>
+        <p><a href="#" class="footer__phone" id="footerPhone">+7 (___) ___-__-__</a></p>
+        <p>Ежедневно: 09:00 — 19:00</p>
+        <div class="footer__socials">
+          <a href="#" target="_blank" rel="noopener" class="soc-link" id="footerTg">Telegram</a>
+          <a href="#" target="_blank" rel="noopener" class="soc-link" id="footerWa">WhatsApp</a>
+          <a href="#" target="_blank" rel="noopener" class="soc-link" id="footerMaps">Яндекс Карты</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__copy" id="footerCopyright">
+        © 2008–2026. Все права защищены.
+      </div>
+      <div class="footer__legal">
+        <span>Политика конфиденциальности и 152-ФЗ</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОБИЛЬНЫЙ ПЛАВАЮЩИЙ БАР (STICKY ACTION BAR) -->
+  <div class="mobile-action-bar">
+    <a href="#" class="mobile-action-btn mobile-action-btn--phone" id="mobileActionPhone">
+      <span class="m-icon">📞</span>
+      <span>Позвонить</span>
+    </a>
+    <a href="#" target="_blank" rel="noopener" class="mobile-action-btn mobile-action-btn--wa" id="mobileActionWa">
+      <span class="m-icon">💬</span>
+      <span>WhatsApp</span>
+    </a>
+    <button class="mobile-action-btn mobile-action-btn--calc" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+      <span class="m-icon">🧮</span>
+      <span>Расчет сметы</span>
+    </button>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО: ЗАПИСЬ НА ЗАМЕР -->
+  <div class="modal" id="measureModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__overlay" id="measureModalOverlay"></div>
+    <div class="modal__dialog">
+      <button class="modal__close" id="closeMeasureModalBtn" aria-label="Закрыть модальное окно">✕</button>
+      <div class="modal__header">
+        <span class="modal__tag">ВЫЕЗД С ОБРАЗЦАМИ 0 ₽</span>
+        <h3 class="modal__title" id="modalTitle">Запись на бесплатный замер</h3>
+        <p class="modal__subtitle">Технолог приедет в удобное время с каталогами материалов и составит точный дизайн-проект.</p>
+      </div>
+      <form id="modalForm" class="modal__form">
+        <div class="form-group">
+          <label for="mName">Ваше имя:</label>
+          <input type="text" id="mName" placeholder="Александр" required>
+        </div>
+        <div class="form-group">
+          <label for="mPhone">Номер телефона:</label>
+          <input type="tel" id="mPhone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="form-group">
+          <label for="mType">Какое изделие планируете:</label>
+          <select id="mType">
+            <option value="Кухня">Кухня (с подарком по акции)</option>
+            <option value="Шкаф-купе">Шкаф-купе / прихожая</option>
+            <option value="Гардеробная">Гардеробная</option>
+            <option value="Столешница из камня">Столешница из камня</option>
+            <option value="Мебель в ванную">Мебель для ванной</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full btn--large">
+          <span>Подтвердить запись на замер</span>
+        </button>
+        <span class="form-privacy">Конфиденциально. Никакого навязчивого спама.</span>
+      </form>
+    </div>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО: ПРОСМОТР ФОТО КРУПНО -->
+  <div class="modal modal--photo" id="photoModal" role="dialog" aria-modal="true">
+    <div class="modal__overlay" id="photoModalOverlay"></div>
+    <div class="modal__dialog modal__dialog--photo">
+      <button class="modal__close" id="closePhotoModalBtn" aria-label="Закрыть">✕</button>
+      <img src="" alt="" id="photoModalImg" class="photo-modal-full">
+      <div class="photo-modal-caption" id="photoModalCaption"></div>
+    </div>
+  </div>
+
+  <!-- TOAST УВЕДОМЛЕНИЯ -->
+  <div class="toast-hub" id="toastHub" aria-live="polite"></div>
+
+  </div><!-- /#landingApp -->
+
+  <!-- База данных брендов и движок -->
+  <script src="brands-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
