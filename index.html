@@ -23,6 +23,34 @@
         if (!ok) {
           document.documentElement.className += ' no-access';
           document.title = '404 — Страница не найдена';
+        } else {
+          var themes = {
+            victoriya: { p: '#E11D48', h: '#F43F5E', l: '#FDA4AF', d: '#9F1239', rgb: '225, 29, 72', c: '#FFFFFF' },
+            avanta:    { p: '#0EA5E9', h: '#38BDF8', l: '#BAE6FD', d: '#0284C7', rgb: '14, 165, 233', c: '#FFFFFF' },
+            vita:      { p: '#10B981', h: '#34D399', l: '#A7F3D0', d: '#047857', rgb: '16, 185, 129', c: '#FFFFFF' },
+            asmebel:   { p: '#F54F29', h: '#FF6A47', l: '#FFCCBC', d: '#C4300D', rgb: '245, 79, 41',  c: '#FFFFFF' }
+          };
+          var b = (r === '1' || r.indexOf('vic') !== -1 || r.indexOf('vik') !== -1 || r.indexOf('викт') !== -1) ? 'victoriya' :
+                  (r === '2' || r.indexOf('avan') !== -1 || r.indexOf('аван') !== -1) ? 'avanta' :
+                  (r === '3' || r.indexOf('vita') !== -1 || r.indexOf('вит') !== -1) ? 'vita' :
+                  (r === '4' || r.indexOf('as') !== -1 || r.indexOf('ас') !== -1) ? 'asmebel' : null;
+          if (b && themes[b]) {
+            var t = themes[b];
+            var root = document.documentElement;
+            root.style.setProperty('--accent-primary', t.p);
+            root.style.setProperty('--accent-gold', t.p);
+            root.style.setProperty('--border-active', t.p);
+            root.style.setProperty('--accent-hover', t.h);
+            root.style.setProperty('--accent-gold-hover', t.h);
+            root.style.setProperty('--accent-light', t.l);
+            root.style.setProperty('--accent-dark', t.d);
+            root.style.setProperty('--accent-rgb', t.rgb);
+            root.style.setProperty('--border-hover', 'rgba(' + t.rgb + ', 0.35)');
+            root.style.setProperty('--accent-glow', 'rgba(' + t.rgb + ', 0.25)');
+            root.style.setProperty('--accent-gold-glow', 'rgba(' + t.rgb + ', 0.25)');
+            root.style.setProperty('--shadow-gold', '0 8px 32px rgba(' + t.rgb + ', 0.25)');
+            root.style.setProperty('--accent-contrast', t.c);
+          }
         }
       } catch (e) {}
     })();

@@ -48,7 +48,50 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // 2. РЕНДЕР ВСЕХ ЭЛЕМЕНТОВ СТРАНИЦЫ ПОД ВЫБРАННЫЙ БРЕНД
   // =========================================================================
+  function applyTheme(theme) {
+    if (!theme) return;
+    const root = document.documentElement;
+    if (theme.accentPrimary) {
+      root.style.setProperty('--accent-primary', theme.accentPrimary);
+      root.style.setProperty('--accent-gold', theme.accentPrimary);
+      root.style.setProperty('--border-active', theme.accentPrimary);
+    }
+    if (theme.accentHover) {
+      root.style.setProperty('--accent-hover', theme.accentHover);
+      root.style.setProperty('--accent-gold-hover', theme.accentHover);
+    }
+    if (theme.accentLight) {
+      root.style.setProperty('--accent-light', theme.accentLight);
+    }
+    if (theme.accentDark) {
+      root.style.setProperty('--accent-dark', theme.accentDark);
+    }
+    if (theme.accentRgb) {
+      root.style.setProperty('--accent-rgb', theme.accentRgb);
+      root.style.setProperty('--border-hover', `rgba(${theme.accentRgb}, 0.35)`);
+      root.style.setProperty('--accent-glow', `rgba(${theme.accentRgb}, 0.25)`);
+      root.style.setProperty('--accent-gold-glow', `rgba(${theme.accentRgb}, 0.25)`);
+      root.style.setProperty('--shadow-gold', `0 8px 32px rgba(${theme.accentRgb}, 0.25)`);
+    }
+    if (theme.accentContrast) {
+      root.style.setProperty('--accent-contrast', theme.accentContrast);
+    }
+
+    let metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (!metaTheme) {
+      metaTheme = document.createElement('meta');
+      metaTheme.name = 'theme-color';
+      document.head.appendChild(metaTheme);
+    }
+    metaTheme.content = theme.accentPrimary || '#0B0C0E';
+  }
+
   function renderBrand(brand) {
+    // 2.0 Индивидуальная палитра бренда (динамическая адаптация темы)
+    if (brand.theme) {
+      applyTheme(brand.theme);
+    }
+
     // 2.1 Title, Meta & Favicon
     document.title = `${brand.name} — Кухни и мебель на заказ в Чебоксарах | Фабрика`;
     const pageDesc = document.getElementById('pageDescription');

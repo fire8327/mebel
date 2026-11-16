@@ -10,6 +10,16 @@ const BRANDS_DATABASE = {
   victoriya: {
     id: 'victoriya',
     numId: 1,
+    // Индивидуальная палитра бренда (в тон красному яблоку/ягоде в логотипе)
+    theme: {
+      accentPrimary: '#E11D48',
+      accentHover: '#F43F5E',
+      accentLight: '#FDA4AF',
+      accentDark: '#9F1239',
+      accentRgb: '225, 29, 72',
+      accentContrast: '#FFFFFF',
+      themeName: 'Королевский рубин'
+    },
     name: 'Виктория Мебель',
     tagline: 'Мебельная фабрика & Изделия из камня',
     badge: 'Собственное производство в Чебоксарах • Опыт более 10 лет',
@@ -183,6 +193,16 @@ const BRANDS_DATABASE = {
   avanta: {
     id: 'avanta',
     numId: 2,
+    // Индивидуальная палитра бренда (в тон лазурно-бирюзовому геометрическому логотипу)
+    theme: {
+      accentPrimary: '#0EA5E9',
+      accentHover: '#38BDF8',
+      accentLight: '#BAE6FD',
+      accentDark: '#0284C7',
+      accentRgb: '14, 165, 233',
+      accentContrast: '#FFFFFF',
+      themeName: 'Технологичный циан'
+    },
     name: 'Аванта Мебель',
     tagline: 'Кухни и корпусная мебель на заказ с 2008 года',
     badge: '16+ лет мастерства в Чебоксарах • Свое производство с 2008 года',
@@ -347,6 +367,16 @@ const BRANDS_DATABASE = {
   vita: {
     id: 'vita',
     numId: 3,
+    // Индивидуальная палитра бренда (в тон зеленой бабочке/листку «Вита» и эко-стилю)
+    theme: {
+      accentPrimary: '#10B981',
+      accentHover: '#34D399',
+      accentLight: '#A7F3D0',
+      accentDark: '#047857',
+      accentRgb: '16, 185, 129',
+      accentContrast: '#FFFFFF',
+      themeName: 'Эко-изумруд'
+    },
     name: 'Вита Мебель',
     tagline: 'Фабрика кухонь и мебели на заказ в Чебоксарах',
     badge: 'Фабричное производство • Доставка по всей Чувашии и Поволжью',
@@ -511,6 +541,16 @@ const BRANDS_DATABASE = {
   asmebel: {
     id: 'asmebel',
     numId: 4,
+    // Индивидуальная палитра бренда (в тон официальному ярко-оранжевому логотипу с креслом)
+    theme: {
+      accentPrimary: '#F54F29',
+      accentHover: '#FF6A47',
+      accentLight: '#FFCCBC',
+      accentDark: '#C4300D',
+      accentRgb: '245, 79, 41',
+      accentContrast: '#FFFFFF',
+      themeName: 'Пламенный оранж'
+    },
     name: 'АСМЕБЕЛЬ 21',
     tagline: 'Кухни и корпусная мебель на заказ в Чебоксарах',
     badge: 'Собственное производство в Чебоксарах • Опыт более 8 лет',
