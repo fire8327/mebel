@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (raw === '1' || raw.includes('vic') || raw.includes('vik') || raw.includes('викт')) return 'victoriya';
     if (raw === '2' || raw.includes('avan') || raw.includes('аван')) return 'avanta';
     if (raw === '3' || raw.includes('vita') || raw.includes('вит')) return 'vita';
+    if (raw === '4' || raw === 'asmebel' || raw.includes('asmeb') || raw.includes('асмеб') || raw.includes('as21') || raw === 'as') return 'asmebel';
 
     return BRANDS_DATABASE[raw] ? raw : null;
   }

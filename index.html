@@ -15,10 +15,11 @@
       try {
         var p = new URLSearchParams(window.location.search);
         var r = (p.get('brand') || p.get('id') || p.get('b') || '').trim().toLowerCase();
-        var ok = r === '1' || r === '2' || r === '3' ||
+        var ok = r === '1' || r === '2' || r === '3' || r === '4' ||
                  r.indexOf('vic') !== -1 || r.indexOf('vik') !== -1 || r.indexOf('викт') !== -1 ||
                  r.indexOf('avan') !== -1 || r.indexOf('аван') !== -1 ||
-                 r.indexOf('vita') !== -1 || r.indexOf('вит') !== -1;
+                 r.indexOf('vita') !== -1 || r.indexOf('вит') !== -1 ||
+                 r.indexOf('as') !== -1 || r.indexOf('ас') !== -1;
         if (!ok) {
           document.documentElement.className += ' no-access';
           document.title = '404 — Страница не найдена';
