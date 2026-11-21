@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2.3 Топ-бар
     const topBarAddress = document.getElementById('topBarAddress');
-    if (topBarAddress) topBarAddress.textContent = `${brand.shortAddress} • Фабрика & Шоурум открыты`;
+    if (topBarAddress) topBarAddress.textContent = `${brand.shortAddress} • Шоурум открыт`;
     const topBarRatingLink = document.getElementById('topBarRatingLink');
     if (topBarRatingLink) topBarRatingLink.href = brand.mapsUrl;
     const topBarRatingScore = document.getElementById('topBarRatingScore');
@@ -131,6 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const headerTgLink = document.getElementById('headerTgLink');
     if (headerTgLink) headerTgLink.href = brand.telegram;
+    const headerPhoneMobileBtn = document.getElementById('headerPhoneMobileBtn');
+    if (headerPhoneMobileBtn) {
+      headerPhoneMobileBtn.href = `tel:${brand.phoneRaw}`;
+    }
+
 
     // 2.5 Hero-секция (фон строго этого бренда)
     const heroBgImg = document.getElementById('heroBgImg');
@@ -335,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (brand.hasStoneStudio) {
       // Только для Виктории: Студия камня
-      if (navFeatureLink) navFeatureLink.textContent = 'Изделия из камня';
+      if (navFeatureLink) navFeatureLink.textContent = 'Цех камня';
       if (footerLinkFeature) footerLinkFeature.textContent = 'Столешницы из камня';
       if (featureTag) featureTag.textContent = 'ЭКСКЛЮЗИВ «ВИКТОРИЯ МЕБЕЛЬ»';
       if (featureTitle) featureTitle.textContent = `Собственный цех обработки камня в Чебоксарах`;
@@ -372,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } else {
       // Для Аванты и Виты: Студия материалов и австрийской фурнитуры (СТРОГО СВОИ ФОТО)
-      if (navFeatureLink) navFeatureLink.textContent = 'Материалы и эргономика';
+      if (navFeatureLink) navFeatureLink.textContent = 'Материалы';
       if (footerLinkFeature) footerLinkFeature.textContent = 'Материалы и фурнитура';
       if (featureTag) featureTag.textContent = `СТАНДАРТЫ КАЧЕСТВА «${brand.name.toUpperCase()}»`;
       if (featureTitle) featureTitle.textContent = `Премиальные фасады и фурнитура Blum`;
